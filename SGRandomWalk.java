@@ -16,8 +16,20 @@ public class SGRandomWalk{
         max.setColor(Color.RED);
         max.fill();   
         
-        while(true){
-            
+        double distance = 0;
+        int steps = 0;
+        while(distance<50){
+            int vertical = (int)(Math.random()*21)-10;
+            int horizontal = (int)(Math.random()*21)-10;
+            max.translate(vertical, horizontal);
+            steps ++;
+            try { Thread.sleep(100);}
+            catch(Exception ex) {};
+            distance = Math.sqrt(Math.pow(max.getX()-150,2)+Math.pow(max.getY()-150,2));
+            if (distance>50){
+                System.out.print("Escaped in " + steps + " steps");
+            }
+
         }
 
    
